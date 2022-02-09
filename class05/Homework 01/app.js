@@ -14,7 +14,7 @@
 // Task 2
 // After the user clicks the button to get the first 10 planets, a button should be shown below the table 
 // that says: NEXT 10. When the button is clicked you should make another call and get the next 10 planets 
-// and change the table contents with information about the next 10 planets.. 
+// and change the table contents with information about the next 10 planets. 
 // After the next 10 planets are shown the button NEXT 10 should disapear and a new button PREVIOUS 10 should appear.
 //  The previous button should return the first 10 planets in the table and hide the PREVIOUS 10 button 
 //  and show the NEXT 10 button.
@@ -50,9 +50,6 @@ button.addEventListener("click", ev => {
     const buttonNext = createButton("next-btn", "Next 10");
     const buttonPrevious = createButton("previous-btn", "Previous 10", "hidden");
 
-    body.appendChild(buttonNext);
-    body.appendChild(buttonPrevious);
-
     buttonNext.addEventListener("click", ev => {
         getDataFromApi("https://swapi.dev/api/planets/?page=2");
         toggleClass(buttonNext, buttonPrevious, "hidden");
@@ -75,6 +72,7 @@ function createButton(id, innerText, cssClass = null) {
     btn.setAttribute("id", id);
     btn.innerText = innerText;
     btn.classList.add(cssClass);
+    body.appendChild(btn);
     return btn;
 }
 
