@@ -37,7 +37,7 @@ getDataFromApi().then(students => {
     let femalesWithAverageGrade5 = students
         .filter(student => student.gender === "Female")
         .filter(student => student.averageGrade === 5)
-        .map(student => student);
+        .map(student => student.firstName);
 
     console.log(femalesWithAverageGrade5);
 });
@@ -60,8 +60,9 @@ getDataFromApi().then(students => {
     let femalesOver24AverageGrade = students
         .filter(student => student.gender === "Female")
         .filter(student => student.age > 24)
-        .map(student => student.averageGrade)
-        .reduce((sum, grade) => sum += grade, 0);
+        .map(student => student.averageGrade);
+
+    // .reduce((sum, grade) => sum += grade, 0); //Sum of average grades 
 
     console.log(femalesOver24AverageGrade);
 });
